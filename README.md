@@ -1,4 +1,4 @@
-# FastAPI Redis Example
+# [FastAPI Redis Example](https://www.youtube.com/watch?v=QSFIK2Ytbh4&t)
 
 This is an example API that demonstrates how to use Redis with FastAPI to build
 a fully async web service in Python.
@@ -21,8 +21,8 @@ This project is designed to run as a set of Docker containers. You will need to
 
 First, clone this repo and build the Docker images for the project:
 
-    $ git clone https://github.com/redis-developer/fastapi-redis-tutorial.git
-    $ cd fastapi-redis-tutorial
+    $ git clone https://github.com/erisanh/aiw-cart-srv.git
+    $ cd aiw-cart-srv
     $ docker-compose build
 
 Running the API involves starting the app server and Redis. You'll do those steps

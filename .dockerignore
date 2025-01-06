@@ -140,4 +140,12 @@ cython_debug/
 # Redis data
 data/appendonly.aof
 
+# Sandbox directory
 /sandbox
+
+# Additional Docker-specific ignores
+.git/
+.gitignore
+Dockerfile*
+docker-compose*.yml
+*.md

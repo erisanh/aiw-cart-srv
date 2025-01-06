@@ -1,26 +1,31 @@
+version: '3.8'
+
 services:
     redis:
         image: redis/redis-stack
         ports:
-          - "16379:6379"
+            - "16379:6379"
         volumes:
-          - $PWD/data:/data
+            - ./data:/data
 
     app:
-        restart: always
-        build: .
+        build:
+            context: .
+            dockerfile: DockerfileLocal
         ports:
-            - "8080:80"
+            - "8000:8000"
         volumes:
-            - $PWD/app:/app
+            - ./app:/app
         depends_on:
             - redis
-        command: /start-reload.sh
+        command: [ "uvicorn", "main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000", "--reload" ]
 
     test:
-        build: .
+        build:
+            context: .
+            dockerfile: DockerfileLocal
         volumes:
-            - $PWD:/app
+            - ./tests:/tests
         depends_on:
             - redis
-        entrypoint: "pytest -s"
+        entrypoint: [ "pytest" ]
