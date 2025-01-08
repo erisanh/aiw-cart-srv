@@ -17,6 +17,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 # Copy the application code
 COPY app /app/app
+COPY .env /app/.env
+# COPY shared /app/shared
+# COPY alembic /app/alembic
+# COPY alembic.ini /app/alembic.ini
+# COPY cli /app/cli
 
 # Set the command to run the application
-# CMD ["python3", "-m", "uvicorn", "app.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["python3", "-m", "uvicorn", "app.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
